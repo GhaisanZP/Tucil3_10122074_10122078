@@ -1,12 +1,20 @@
 package solver;
 
-import model.*;
-
 import java.util.*;
+import model.*;
 
 public class Solver {
     public static boolean useAStar = false;
     public static int rows, cols;
+
+    // ANSI color codes
+    private static final String RESET  = "\u001B[0m";
+    private static final String RED    = "\u001B[31m";  // primary piece P
+    private static final String GREEN  = "\u001B[32m";  // exit K
+    private static final String YELLOW = "\u001B[33m";  // moving piece
+    private static Position exitPosition;
+    private static long nodesExpanded;
+    private static long startTime, endTime;
 
     public static int heuristic(char[][] board, Position exit) {
         for (int i = 0; i < board.length; i++) {
@@ -22,17 +30,23 @@ public class Solver {
     public static void solve(char[][] initialBoard, int n_rows, int n_cols, Position exit) {
         rows = n_rows;
         cols = n_cols;
+        exitPosition = exit;
+        nodesExpanded = 0;
+        startTime = System.nanoTime();
         PriorityQueue<State> pq = new PriorityQueue<>();
         Set<String> visited = new HashSet<>();
 
-        State start = new State(initialBoard, rows, cols, 0, null, useAStar, exit);
+        State start = new State(initialBoard, rows, cols, 0, null, useAStar, exitPosition);
         pq.add(start);
 
         while (!pq.isEmpty()) {
             State current = pq.poll();
+            nodesExpanded++;
 
-            if (isGoal(current.board, exit)) {
+            if (isGoal(current.board, exitPosition)) {
+                endTime = System.nanoTime();
                 printSolution(current);
+                printStats(nodesExpanded, startTime, endTime);
                 return;
             }
 
@@ -40,7 +54,7 @@ public class Solver {
             if (visited.contains(boardStr)) continue;
             visited.add(boardStr);
 
-            for (State next : generateSuccessors(current, exit)) {
+            for (State next : generateSuccessors(current, exitPosition)) {
                 pq.add(next);
             }
         }
@@ -50,6 +64,14 @@ public class Solver {
 
     static boolean isGoal(char[][] board, Position exit) {
         return board[exit.row][exit.col] == 'P';
+    }
+
+    private static void printStats(long nodes, long t0, long t1) {
+        double secs = (t1 - t0) / 1_000_000_000.0;
+        System.out.println("\n--- Search stats ---");
+        System.out.printf("Nodes expanded : %d\n", nodes);
+        System.out.printf("Elapsed time   : %.3f s\n", secs);
+        System.out.println("--------------------\n");
     }
 
     static List<State> generateSuccessors(State current, Position exit) {
@@ -147,25 +169,104 @@ public class Solver {
         return newBoard;
     }
 
-    static String boardToString(char[][] board) {
+    private static String boardToString(char[][] board) {
         StringBuilder sb = new StringBuilder();
-        for (char[] row : board) sb.append(row);
+        for (char[] row : board) sb.append(row).append("\n");
         return sb.toString();
     }
 
-    static void printSolution(State goal) {
+    private static void printSolution(State goal) {
         List<State> path = new ArrayList<>();
-        while (goal != null) {
-            path.add(goal);
-            goal = goal.parent;
-        }
+        for (State s = goal; s != null; s = s.parent) path.add(s);
         Collections.reverse(path);
-        System.out.println("Solved in " + (path.size() - 1) + " moves.");
-        for (State s : path) printBoard(s.board);
+
+        // Papan Awal
+        System.out.println("Papan Awal");
+        printBoard(path.get(0).board, '\0');
+
+        for (int i = 1; i < path.size(); i++) {
+            char[][] prev = path.get(i-1).board;
+            char[][] curr = path.get(i).board;
+            boolean lastMove = isGoal(curr, exitPosition);
+            char moved = detectMovedPiece(prev, curr);
+            if (moved == '?' && lastMove) {
+                // P piece moved into exit
+                moved = 'P';
+            }
+            String dir;
+            if (moved == 'P' && lastMove) {
+                dir = lastMoveDirection(prev, moved);
+            } else {
+                dir = detectDirection(prev, curr, moved);
+            }
+
+            System.out.printf("\nGerakan %d: %c-%s%n", i, moved, dir);
+            printBoard(curr, moved);
+        }
     }
 
-    static void printBoard(char[][] board) {
-        for (char[] row : board) System.out.println(new String(row));
-        System.out.println();
+    private static String lastMoveDirection(char[][] prev, char piece) {
+        // determine orientation of P in prev
+        int minR = rows, maxR = -1, minC = cols, maxC = -1;
+        for (int r = 0; r < rows; r++) for (int c = 0; c < cols; c++)
+            if (prev[r][c] == piece) {
+                minR = Math.min(minR, r);
+                maxR = Math.max(maxR, r);
+                minC = Math.min(minC, c);
+                maxC = Math.max(maxC, c);
+            }
+        if (minR == maxR) {
+            // horizontal
+            return exitPosition.col > maxC ? "kanan" : "kiri";
+        } else {
+            return exitPosition.row > maxR ? "bawah" : "atas";
+        }
+    }
+
+    private static char detectMovedPiece(char[][] a, char[][] b) {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (a[i][j] != b[i][j] && b[i][j] != '.' && b[i][j] != 'K') {
+                    return b[i][j];
+                }
+            }
+        }
+        return '?';
+    }
+
+    private static String detectDirection(char[][] a, char[][] b, char piece) {
+        Position before = findPosition(a, piece);
+        Position after  = findPosition(b, piece);
+        if (before == null || after == null) {
+            // fallback for unexpected case: use lastMoveDirection logic only for P
+            if (piece == 'P') return lastMoveDirection(a, piece);
+            return "?";
+        }
+        if (before.row == after.row) {
+            return after.col > before.col ? "kanan" : "kiri";
+        } else {
+            return after.row > before.row ? "bawah" : "atas";
+        }
+    }
+
+    private static Position findPosition(char[][] board, char piece) {
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                if (board[i][j] == piece) return new Position(i, j);
+            }
+        }
+        return null;
+    }
+
+    private static void printBoard(char[][] board, char activePiece) {
+        for (char[] row : board) {
+            for (char c : row) {
+                if (c == 'P')      System.out.print(RED   + c + RESET);
+                else if (c == 'K') System.out.print(GREEN + c + RESET);
+                else if (c == activePiece) System.out.print(YELLOW + c + RESET);
+                else System.out.print(c);
+            }
+            System.out.println();
+        }
     }
 }
