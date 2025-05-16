@@ -15,7 +15,13 @@ public class Parser {
 
         char[][] board = new char[rows][cols];
         for (int i = 0; i < rows; i++) {
-            board[i] = br.readLine().toCharArray();
+            String line = br.readLine();
+            if (line.length() < cols) {
+                // Isi titik '.' di awal baris hingga panjangnya sama dengan jumlah kolom
+                int padding = cols - line.length();
+                line = line + " ".repeat(padding);
+            }
+            board[i] = line.toCharArray();
             for (int j = 0; j < board[i].length; j++) {
                 if (board[i][j] == 'K') {
                     exit = new Position(i, j);
