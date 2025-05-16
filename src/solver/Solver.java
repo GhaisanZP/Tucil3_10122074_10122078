@@ -42,6 +42,7 @@ public class Solver {
         while (!pq.isEmpty()) {
             State current = pq.poll();
             nodesExpanded++;
+            //printBoard(current.board);
 
             if (isGoal(current.board, exitPosition)) {
                 endTime = System.nanoTime();
@@ -80,7 +81,7 @@ public class Solver {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 char c = board[i][j];
-                if (c != '.' && c != 'K') pieces.add(c);
+                if (c != '.' && c != 'K' && c != ' ') pieces.add(c);
             }
         }
 
@@ -153,6 +154,7 @@ public class Solver {
                     //     newBoard[positions.get(i).row][c] = '.';
                     // }
                     newBoard[minRow][c] = '.';
+                    //System.out.println(maxRow);
                     newBoard[maxRow + 1][c] = piece;
                     successors.add(new State(newBoard, rows, cols, current.cost + 1, current, useAStar, exit));
                 }
@@ -258,7 +260,7 @@ public class Solver {
         return null;
     }
 
-    private static void printBoard(char[][] board, char activePiece) {
+    public static void printBoard(char[][] board, char activePiece) {
         for (char[] row : board) {
             for (char c : row) {
                 if (c == 'P')      System.out.print(RED   + c + RESET);
