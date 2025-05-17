@@ -1,23 +1,74 @@
-import util.Parser;
+import java.io.*;
+import java.nio.file.*;
 import solver.Solver;
-import model.Position;
+import util.Parser;
 
 public class RushHour {
     public static void main(String[] args) throws Exception {
         if (args.length < 2) {
-            System.out.println("Usage: java RushHour <filename> <ucs|astar>");
+            System.out.println("Usage: java RushHour <filename> <ucs|gbfs|astar>");
             return;
         }
 
-        if (args[1].equalsIgnoreCase("astar")) {
-            Solver.useAStar = true;
-            System.out.println("Running A* Search...");
-        } else {
-            System.out.println("Running Uniform Cost Search...");
+        String inputName = Paths.get(args[0]).getFileName().toString();
+        Path outputPath = Paths.get("test", "solusi_" + inputName);
+        Files.createDirectories(outputPath.getParent());
+        PrintStream fileOut = new PrintStream(new FileOutputStream(outputPath.toFile()), true);
+        PrintStream console = System.out;
+        System.setOut(new PrintStream(new OutputStream() {
+            private final byte ESC = 0x1B;
+            private boolean inAnsi = false;
+
+            @Override public void write(int b) throws IOException {
+                console.write(b);
+                if (b == ESC) {
+                    inAnsi = true;
+                    return;    
+                }
+                if (inAnsi) {
+                    if ((char)b == 'm') {
+                        inAnsi = false;  
+                    }
+                    return; 
+                }
+                fileOut.write(b);
+            }
+            @Override public void flush() throws IOException {
+                console.flush();
+                fileOut.flush();
+            }
+            @Override public void close() throws IOException {
+                console.close();
+                fileOut.close();
+            }
+        }, true));
+        switch (args[1].toLowerCase()) {
+            case "ucs":
+                Solver.useAStar  = false;
+                Solver.useGreedy = false;
+                System.out.println("Running Uniform Cost Search...");
+                break;
+            case "astar":
+                Solver.useAStar  = true;
+                Solver.useGreedy = false;
+                System.out.println("Running A* Search...");
+                break;
+            case "gbfs":
+                Solver.useAStar  = false; 
+                Solver.useGreedy = true;   
+                System.out.println("Running Greedy Best‑First Search...");
+                break;
+            default:
+                Solver.useAStar  = true;
+                Solver.useGreedy = false;
+                System.out.println("Running A* Search...");
+                break;
         }
 
         int[] dimensions = new int[2]; // [rows, cols]
         char[][] board = Parser.parseInput(args[0], dimensions);
         Solver.solve(board, Parser.rows, Parser.cols, Parser.exit);
+
+        fileOut.close();
     }
 }

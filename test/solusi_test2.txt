@@ -1,0 +1,78 @@
+Running Greedy Best‑First Search...
+Papan Awal
+  K   
+A.GGGL
+A.PHHL
+BBP.JJ
+.CCI.M
+.DDI.M
+FFFI..
+
+Gerakan 1: D-kiri
+  K   
+A.GGGL
+A.PHHL
+BBP.JJ
+.CCI.M
+DD.I.M
+FFFI..
+
+Gerakan 2: J-kiri
+  K   
+A.GGGL
+A.PHHL
+BBPJJ.
+.CCI.M
+DD.I.M
+FFFI..
+
+Gerakan 3: M-bawah
+  K   
+A.GGGL
+A.PHHL
+BBPJJ.
+.CCI..
+DD.I.M
+FFFI.M
+
+Gerakan 4: L-bawah
+  K   
+A.GGG.
+A.PHHL
+BBPJJL
+.CCI..
+DD.I.M
+FFFI.M
+
+Gerakan 5: G-kanan
+  K   
+A..GGG
+A.PHHL
+BBPJJL
+.CCI..
+DD.I.M
+FFFI.M
+
+Gerakan 6: P-atas
+  K   
+A.PGGG
+A.PHHL
+BB.JJL
+.CCI..
+DD.I.M
+FFFI.M
+
+Gerakan 7: P-atas
+  P   
+A.PGGG
+A..HHL
+BB.JJL
+.CCI..
+DD.I.M
+FFFI.M
+
+--- Search stats ---
+Nodes expanded : 39
+Elapsed time   : 0.039 s
+--------------------
+

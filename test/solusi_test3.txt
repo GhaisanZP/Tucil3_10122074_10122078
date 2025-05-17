@@ -1,0 +1,699 @@
+Running Uniform Cost Search...
+Papan Awal
+ABBP..
+ACDP..
+.CDEEE
+FFDGGH
+I....H
+I..JJJ
+   K  
+
+Gerakan 1: J-kiri
+ABBP..
+ACDP..
+.CDEEE
+FFDGGH
+I....H
+I.JJJ.
+   K  
+
+Gerakan 2: H-bawah
+ABBP..
+ACDP..
+.CDEEE
+FFDGG.
+I....H
+I.JJJH
+   K  
+
+Gerakan 3: G-kanan
+ABBP..
+ACDP..
+.CDEEE
+FFD.GG
+I....H
+I.JJJH
+   K  
+
+Gerakan 4: A-bawah
+.BBP..
+ACDP..
+ACDEEE
+FFD.GG
+I....H
+I.JJJH
+   K  
+
+Gerakan 5: B-kiri
+BB.P..
+ACDP..
+ACDEEE
+FFD.GG
+I....H
+I.JJJH
+   K  
+
+Gerakan 6: D-atas
+BBDP..
+ACDP..
+ACDEEE
+FF..GG
+I....H
+I.JJJH
+   K  
+
+Gerakan 7: F-kanan
+BBDP..
+ACDP..
+ACDEEE
+.FF.GG
+I....H
+I.JJJH
+   K  
+
+Gerakan 8: F-kanan
+BBDP..
+ACDP..
+ACDEEE
+..FFGG
+I....H
+I.JJJH
+   K  
+
+Gerakan 9: C-bawah
+BBDP..
+A.DP..
+ACDEEE
+.CFFGG
+I....H
+I.JJJH
+   K  
+
+Gerakan 10: C-bawah
+BBDP..
+A.DP..
+A.DEEE
+.CFFGG
+IC...H
+I.JJJH
+   K  
+
+Gerakan 11: C-bawah
+BBDP..
+A.DP..
+A.DEEE
+..FFGG
+IC...H
+ICJJJH
+   K  
+
+Gerakan 12: F-kiri
+BBDP..
+A.DP..
+A.DEEE
+.FF.GG
+IC...H
+ICJJJH
+   K  
+
+Gerakan 13: G-kiri
+BBDP..
+A.DP..
+A.DEEE
+.FFGG.
+IC...H
+ICJJJH
+   K  
+
+Gerakan 14: H-atas
+BBDP..
+A.DP..
+A.DEEE
+.FFGGH
+IC...H
+ICJJJ.
+   K  
+
+Gerakan 15: F-kiri
+BBDP..
+A.DP..
+A.DEEE
+FF.GGH
+IC...H
+ICJJJ.
+   K  
+
+Gerakan 16: D-bawah
+BB.P..
+A.DP..
+A.DEEE
+FFDGGH
+IC...H
+ICJJJ.
+   K  
+
+Gerakan 17: B-kanan
+.BBP..
+A.DP..
+A.DEEE
+FFDGGH
+IC...H
+ICJJJ.
+   K  
+
+Gerakan 18: J-kanan
+.BBP..
+A.DP..
+A.DEEE
+FFDGGH
+IC...H
+IC.JJJ
+   K  
+
+Gerakan 19: D-bawah
+.BBP..
+A..P..
+A.DEEE
+FFDGGH
+ICD..H
+IC.JJJ
+   K  
+
+Gerakan 20: D-bawah
+.BBP..
+A..P..
+A..EEE
+FFDGGH
+ICD..H
+ICDJJJ
+   K  
+
+Gerakan 21: A-atas
+ABBP..
+A..P..
+...EEE
+FFDGGH
+ICD..H
+ICDJJJ
+   K  
+
+Gerakan 22: E-kiri
+ABBP..
+A..P..
+..EEE.
+FFDGGH
+ICD..H
+ICDJJJ
+   K  
+
+Gerakan 23: E-kiri
+ABBP..
+A..P..
+.EEE..
+FFDGGH
+ICD..H
+ICDJJJ
+   K  
+
+Gerakan 24: E-kiri
+ABBP..
+A..P..
+EEE...
+FFDGGH
+ICD..H
+ICDJJJ
+   K  
+
+Gerakan 25: P-bawah
+ABB...
+A..P..
+EEEP..
+FFDGGH
+ICD..H
+ICDJJJ
+   K  
+
+Gerakan 26: B-kanan
+A.BB..
+A..P..
+EEEP..
+FFDGGH
+ICD..H
+ICDJJJ
+   K  
+
+Gerakan 27: B-kanan
+A..BB.
+A..P..
+EEEP..
+FFDGGH
+ICD..H
+ICDJJJ
+   K  
+
+Gerakan 28: B-kanan
+A...BB
+A..P..
+EEEP..
+FFDGGH
+ICD..H
+ICDJJJ
+   K  
+
+Gerakan 29: P-atas
+A..PBB
+A..P..
+EEE...
+FFDGGH
+ICD..H
+ICDJJJ
+   K  
+
+Gerakan 30: E-kanan
+A..PBB
+A..P..
+.EEE..
+FFDGGH
+ICD..H
+ICDJJJ
+   K  
+
+Gerakan 31: E-kanan
+A..PBB
+A..P..
+..EEE.
+FFDGGH
+ICD..H
+ICDJJJ
+   K  
+
+Gerakan 32: E-kanan
+A..PBB
+A..P..
+...EEE
+FFDGGH
+ICD..H
+ICDJJJ
+   K  
+
+Gerakan 33: D-atas
+A..PBB
+A..P..
+..DEEE
+FFDGGH
+ICD..H
+IC.JJJ
+   K  
+
+Gerakan 34: D-atas
+A..PBB
+A.DP..
+..DEEE
+FFDGGH
+IC...H
+IC.JJJ
+   K  
+
+Gerakan 35: D-atas
+A.DPBB
+A.DP..
+..DEEE
+FF.GGH
+IC...H
+IC.JJJ
+   K  
+
+Gerakan 36: J-kiri
+A.DPBB
+A.DP..
+..DEEE
+FF.GGH
+IC...H
+ICJJJ.
+   K  
+
+Gerakan 37: H-bawah
+A.DPBB
+A.DP..
+..DEEE
+FF.GG.
+IC...H
+ICJJJH
+   K  
+
+Gerakan 38: G-kanan
+A.DPBB
+A.DP..
+..DEEE
+FF..GG
+IC...H
+ICJJJH
+   K  
+
+Gerakan 39: F-kanan
+A.DPBB
+A.DP..
+..DEEE
+.FF.GG
+IC...H
+ICJJJH
+   K  
+
+Gerakan 40: F-kanan
+A.DPBB
+A.DP..
+..DEEE
+..FFGG
+IC...H
+ICJJJH
+   K  
+
+Gerakan 41: C-atas
+A.DPBB
+A.DP..
+..DEEE
+.CFFGG
+IC...H
+I.JJJH
+   K  
+
+Gerakan 42: C-atas
+A.DPBB
+A.DP..
+.CDEEE
+.CFFGG
+I....H
+I.JJJH
+   K  
+
+Gerakan 43: C-atas
+A.DPBB
+ACDP..
+.CDEEE
+..FFGG
+I....H
+I.JJJH
+   K  
+
+Gerakan 44: F-kiri
+A.DPBB
+ACDP..
+.CDEEE
+.FF.GG
+I....H
+I.JJJH
+   K  
+
+Gerakan 45: G-kiri
+A.DPBB
+ACDP..
+.CDEEE
+.FFGG.
+I....H
+I.JJJH
+   K  
+
+Gerakan 46: H-atas
+A.DPBB
+ACDP..
+.CDEEE
+.FFGGH
+I....H
+I.JJJ.
+   K  
+
+Gerakan 47: F-kiri
+A.DPBB
+ACDP..
+.CDEEE
+FF.GGH
+I....H
+I.JJJ.
+   K  
+
+Gerakan 48: D-bawah
+A..PBB
+ACDP..
+.CDEEE
+FFDGGH
+I....H
+I.JJJ.
+   K  
+
+Gerakan 49: J-kanan
+A..PBB
+ACDP..
+.CDEEE
+FFDGGH
+I....H
+I..JJJ
+   K  
+
+Gerakan 50: D-bawah
+A..PBB
+AC.P..
+.CDEEE
+FFDGGH
+I.D..H
+I..JJJ
+   K  
+
+Gerakan 51: D-bawah
+A..PBB
+AC.P..
+.C.EEE
+FFDGGH
+I.D..H
+I.DJJJ
+   K  
+
+Gerakan 52: E-kiri
+A..PBB
+AC.P..
+.CEEE.
+FFDGGH
+I.D..H
+I.DJJJ
+   K  
+
+Gerakan 53: H-atas
+A..PBB
+AC.P..
+.CEEEH
+FFDGGH
+I.D...
+I.DJJJ
+   K  
+
+Gerakan 54: C-atas
+AC.PBB
+AC.P..
+..EEEH
+FFDGGH
+I.D...
+I.DJJJ
+   K  
+
+Gerakan 55: E-kiri
+AC.PBB
+AC.P..
+.EEE.H
+FFDGGH
+I.D...
+I.DJJJ
+   K  
+
+Gerakan 56: E-kiri
+AC.PBB
+AC.P..
+EEE..H
+FFDGGH
+I.D...
+I.DJJJ
+   K  
+
+Gerakan 57: H-atas
+AC.PBB
+AC.P.H
+EEE..H
+FFDGG.
+I.D...
+I.DJJJ
+   K  
+
+Gerakan 58: P-bawah
+AC..BB
+AC.P.H
+EEEP.H
+FFDGG.
+I.D...
+I.DJJJ
+   K  
+
+Gerakan 59: G-kanan
+AC..BB
+AC.P.H
+EEEP.H
+FFD.GG
+I.D...
+I.DJJJ
+   K  
+
+Gerakan 60: P-bawah
+AC..BB
+AC...H
+EEEP.H
+FFDPGG
+I.D...
+I.DJJJ
+   K  
+
+Gerakan 61: B-kiri
+AC.BB.
+AC...H
+EEEP.H
+FFDPGG
+I.D...
+I.DJJJ
+   K  
+
+Gerakan 62: P-bawah
+AC.BB.
+AC...H
+EEE..H
+FFDPGG
+I.DP..
+I.DJJJ
+   K  
+
+Gerakan 63: H-atas
+AC.BBH
+AC...H
+EEE...
+FFDPGG
+I.DP..
+I.DJJJ
+   K  
+
+Gerakan 64: E-kanan
+AC.BBH
+AC...H
+.EEE..
+FFDPGG
+I.DP..
+I.DJJJ
+   K  
+
+Gerakan 65: E-kanan
+AC.BBH
+AC...H
+..EEE.
+FFDPGG
+I.DP..
+I.DJJJ
+   K  
+
+Gerakan 66: E-kanan
+AC.BBH
+AC...H
+...EEE
+FFDPGG
+I.DP..
+I.DJJJ
+   K  
+
+Gerakan 67: D-atas
+AC.BBH
+AC...H
+..DEEE
+FFDPGG
+I.DP..
+I..JJJ
+   K  
+
+Gerakan 68: D-atas
+AC.BBH
+ACD..H
+..DEEE
+FFDPGG
+I..P..
+I..JJJ
+   K  
+
+Gerakan 69: J-kiri
+AC.BBH
+ACD..H
+..DEEE
+FFDPGG
+I..P..
+I.JJJ.
+   K  
+
+Gerakan 70: D-atas
+ACDBBH
+ACD..H
+..DEEE
+FF.PGG
+I..P..
+I.JJJ.
+   K  
+
+Gerakan 71: J-kiri
+ACDBBH
+ACD..H
+..DEEE
+FF.PGG
+I..P..
+IJJJ..
+   K  
+
+Gerakan 72: F-kanan
+ACDBBH
+ACD..H
+..DEEE
+.FFPGG
+I..P..
+IJJJ..
+   K  
+
+Gerakan 73: I-atas
+ACDBBH
+ACD..H
+..DEEE
+IFFPGG
+I..P..
+.JJJ..
+   K  
+
+Gerakan 74: J-kiri
+ACDBBH
+ACD..H
+..DEEE
+IFFPGG
+I..P..
+JJJ...
+   K  
+
+Gerakan 75: P-bawah
+ACDBBH
+ACD..H
+..DEEE
+IFF.GG
+I..P..
+JJJP..
+   K  
+
+Gerakan 76: P-bawah
+ACDBBH
+ACD..H
+..DEEE
+IFF.GG
+I.....
+JJJP..
+   P  
+
+--- Search stats ---
+Nodes expanded : 1069
+Elapsed time   : 0.121 s
+--------------------
+

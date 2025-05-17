@@ -5,7 +5,9 @@ import model.*;
 
 public class Solver {
     public static boolean useAStar = false;
+    public static boolean useGreedy = false;
     public static int rows, cols;
+    public static boolean enableColor = true;
 
     // ANSI color codes
     private static final String RESET  = "\u001B[0m";
@@ -36,24 +38,24 @@ public class Solver {
         PriorityQueue<State> pq = new PriorityQueue<>();
         Set<String> visited = new HashSet<>();
 
-        State start = new State(initialBoard, rows, cols, 0, null, useAStar, exitPosition);
+        State start = new State(initialBoard, rows, cols, 0, null, exitPosition);
         pq.add(start);
 
         while (!pq.isEmpty()) {
             State current = pq.poll();
-            nodesExpanded++;
             //printBoard(current.board);
-
+        
+            String boardStr = boardToString(current.board);
+            if (visited.contains(boardStr)) continue;
+            visited.add(boardStr);
+            nodesExpanded++;
+            
             if (isGoal(current.board, exitPosition)) {
                 endTime = System.nanoTime();
                 printSolution(current);
                 printStats(nodesExpanded, startTime, endTime);
                 return;
             }
-
-            String boardStr = boardToString(current.board);
-            if (visited.contains(boardStr)) continue;
-            visited.add(boardStr);
 
             for (State next : generateSuccessors(current, exitPosition)) {
                 pq.add(next);
@@ -109,7 +111,7 @@ public class Solver {
                     // }
                     newBoard[r][maxCol] = '.';
                     newBoard[r][minCol - 1] = piece;
-                    successors.add(new State(newBoard, rows, cols, current.cost + 1, current, useAStar, exit));
+                    successors.add(new State(newBoard, rows, cols, current.cost + 1, current, exit));
                 }
 
                 // Move right
@@ -120,7 +122,7 @@ public class Solver {
                     // }
                     newBoard[r][minCol] = '.';
                     newBoard[r][maxCol + 1] = piece;
-                    successors.add(new State(newBoard, rows, cols, current.cost + 1, current, useAStar, exit));
+                    successors.add(new State(newBoard, rows, cols, current.cost + 1, current, exit));
                 }
             } else {
                 // Vertical
@@ -144,7 +146,7 @@ public class Solver {
                     // }
                     newBoard[maxRow][c] = '.';
                     newBoard[minRow - 1][c] = piece;
-                    successors.add(new State(newBoard, rows, cols, current.cost + 1, current, useAStar, exit));
+                    successors.add(new State(newBoard, rows, cols, current.cost + 1, current, exit));
                 }
 
                 // Move down
@@ -156,7 +158,7 @@ public class Solver {
                     newBoard[minRow][c] = '.';
                     //System.out.println(maxRow);
                     newBoard[maxRow + 1][c] = piece;
-                    successors.add(new State(newBoard, rows, cols, current.cost + 1, current, useAStar, exit));
+                    successors.add(new State(newBoard, rows, cols, current.cost + 1, current, exit));
                 }
             }
         }
@@ -263,9 +265,9 @@ public class Solver {
     public static void printBoard(char[][] board, char activePiece) {
         for (char[] row : board) {
             for (char c : row) {
-                if (c == 'P')      System.out.print(RED   + c + RESET);
-                else if (c == 'K') System.out.print(GREEN + c + RESET);
-                else if (c == activePiece) System.out.print(YELLOW + c + RESET);
+                if      (c == 'P' && enableColor) System.out.print(RED + c + RESET);
+                else if (c == 'K' && enableColor) System.out.print(GREEN + c + RESET);
+                else if (c == activePiece && enableColor) System.out.print(YELLOW + c + RESET);
                 else System.out.print(c);
             }
             System.out.println();
