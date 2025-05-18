@@ -1,0 +1,51 @@
+Running Uniform Cost Search...
+Papan Awal
+  K   
+A.GGGL
+A.PHHL
+BBP.JJ
+.CCI.M
+.DDI.M
+FFFI..
+
+Gerakan 1: J-kiri
+  K   
+A.GGGL
+A.PHHL
+BBPJJ.
+.CCI.M
+.DDI.M
+FFFI..
+
+Gerakan 2: L-bawah
+  K   
+A.GGG.
+A.PHHL
+BBPJJL
+.CCI.M
+.DDI.M
+FFFI..
+
+Gerakan 3: G-kanan
+  K   
+A..GGG
+A.PHHL
+BBPJJL
+.CCI.M
+.DDI.M
+FFFI..
+
+Gerakan 4: P-atas
+  P   
+A.PGGG
+A..HHL
+BB.JJL
+.CCI.M
+.DDI.M
+FFFI..
+
+--- Search stats ---
+Nodes expanded : 93
+Elapsed time   : 0,138 s
+--------------------
+

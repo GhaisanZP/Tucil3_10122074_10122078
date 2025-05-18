@@ -49,7 +49,7 @@ public class Solver {
         while (!pq.isEmpty()) {
             State current = pq.poll();
             //printBoard(current.board);
-        
+            
             String boardStr = boardToString(current.board);
             if (visited.contains(boardStr)) continue;
             visited.add(boardStr);
@@ -83,7 +83,7 @@ public class Solver {
             printStats(nodesExpanded, startTime, endTime);
             return;
         }
-
+        //System.out.println(nodesExpanded);
         System.out.println("No solution found.");
     }
 
@@ -126,25 +126,31 @@ public class Solver {
                 int r = positions.get(0).row;
                 int minCol = positions.stream().mapToInt(p -> p.col).min().getAsInt();
                 int maxCol = positions.stream().mapToInt(p -> p.col).max().getAsInt();
-                if (minCol > 0 && (board[r][minCol - 1] == '.' || board[r][minCol - 1] == 'K')) {
+                int i = 0;
+                while (minCol - i > 0 && (board[r][minCol - 1 - i] == '.' || board[r][minCol - 1 - i] == 'K')) {
                     char[][] newBoard = copyBoard(board);
-                    // for (int i = positions.size() - 1; i >= 0; i--) {
-                    //     newBoard[r][positions.get(i).col + 1] = '.';
-                    // }
-                    newBoard[r][maxCol] = '.';
-                    newBoard[r][minCol - 1] = piece;
+                    for (int j = 0; j <= i; j++) {
+                        newBoard[r][maxCol - j] = '.';
+                        newBoard[r][minCol - 1 - j] = piece;
+                    }
                     successors.add(new State(newBoard, rows, cols, current.cost + 1, current, exit));
+                    i++;
                 }
 
                 // Move right
-                if (maxCol < board[r].length - 1 && (board[r][maxCol + 1] == '.' || board[r][maxCol + 1] == 'K')) {
+                i = 0;
+                while (maxCol + i < board[r].length - 1 && (board[r][maxCol + 1 + i] == '.' || board[r][maxCol + 1 + i] == 'K')) {
                     char[][] newBoard = copyBoard(board);
-                    // for (int i = 0; i < positions.size(); i++) {
-                    //     newBoard[r][positions.get(i).col] = '.';
-                    // }
-                    newBoard[r][minCol] = '.';
-                    newBoard[r][maxCol + 1] = piece;
+                    for (int j = 0; j <= i; j++) {
+                        newBoard[r][minCol + j] = '.';
+                        newBoard[r][maxCol + 1 + j] = piece;
+                    }   
+                    //System.out.println();
+                    //printBoard(board, '\0');
+                    //System.out.println();
+                    //printBoard(newBoard, '\0');
                     successors.add(new State(newBoard, rows, cols, current.cost + 1, current, exit));
+                    i++;
                 }
             } else {
                 // Vertical
@@ -161,26 +167,27 @@ public class Solver {
                 }
 
                 // Move up
-                if (minRow > 0 && (board[minRow - 1][c] == '.' || board[minRow - 1][c] == 'K')) {
+                int i = 0;
+                while (minRow - i > 0 && (board[minRow - 1 - i][c] == '.' || board[minRow - 1 - i][c] == 'K')) {
                     char[][] newBoard = copyBoard(board);
-                    // for (int i = positions.size() - 1; i >= 0; i--) {
-                    //     newBoard[positions.get(i).row + 1][c] = '.';
-                    // }
-                    newBoard[maxRow][c] = '.';
-                    newBoard[minRow - 1][c] = piece;
+                    for (int j = 0; j <= i; j++) {
+                        newBoard[maxRow - j][c] = '.';
+                        newBoard[minRow - 1 - j][c] = piece;
+                    }
                     successors.add(new State(newBoard, rows, cols, current.cost + 1, current, exit));
+                    i++;
                 }
 
                 // Move down
-                if (maxRow < length - 1 && (board[maxRow + 1][c] == '.' || board[maxRow + 1][c] == 'K')) {
+                i = 0;
+                while (maxRow + i < length - 1 && (board[maxRow + 1 + i][c] == '.' || board[maxRow + 1 + i][c] == 'K')) {
                     char[][] newBoard = copyBoard(board);
-                    // for (int i = 0; i < positions.size(); i++) {
-                    //     newBoard[positions.get(i).row][c] = '.';
-                    // }
-                    newBoard[minRow][c] = '.';
-                    //System.out.println(maxRow);
-                    newBoard[maxRow + 1][c] = piece;
+                    for (int j = 0; j <= i; j++) {
+                        newBoard[minRow + j][c] = '.';
+                        newBoard[maxRow + 1 + j][c] = piece;
+                    }
                     successors.add(new State(newBoard, rows, cols, current.cost + 1, current, exit));
+                    i++;
                 }
             }
         }
