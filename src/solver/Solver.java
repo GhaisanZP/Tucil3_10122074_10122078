@@ -9,6 +9,8 @@ public class Solver {
     public static boolean useBnB    = false;
     public static int rows, cols;
     public static boolean enableColor = true;
+    public enum HeuristicMode { MANHATTAN, BLOCKING, COMBINED }
+    public static HeuristicMode heuristicMode = HeuristicMode.COMBINED;
 
     // ANSI color codes
     private static final String RESET  = "\u001B[0m";

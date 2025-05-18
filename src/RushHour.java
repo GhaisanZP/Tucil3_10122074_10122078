@@ -6,7 +6,7 @@ import util.Parser;
 public class RushHour {
     public static void main(String[] args) throws Exception {
         if (args.length < 2) {
-            System.out.println("Usage: java RushHour <filename> <ucs|gbfs|astar|bnb>");
+            System.out.println("Usage: java RushHour <filename> <ucs|gbfs|astar|bnb> <manhattan|blocking|combined>");
             return;
         }
 
@@ -42,7 +42,22 @@ public class RushHour {
                 fileOut.close();
             }
         }, true));
-        switch (args[1].toLowerCase()) {
+        String heu = args[2].toLowerCase();
+        switch (heu) {
+            case "manhattan":
+                Solver.heuristicMode = Solver.HeuristicMode.MANHATTAN;
+                break;
+            case "blocking":
+                Solver.heuristicMode = Solver.HeuristicMode.BLOCKING;
+                break;
+            case "combined":
+                Solver.heuristicMode = Solver.HeuristicMode.COMBINED;
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown heuristic: " + heu);
+        }
+        String alg = args[1].toLowerCase();
+        switch (alg) {
             case "ucs":
                 Solver.useAStar  = false;
                 Solver.useGreedy = false;

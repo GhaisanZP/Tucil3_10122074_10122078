@@ -693,7 +693,7 @@ JJJP..
    P  
 
 --- Search stats ---
-Nodes expanded : 1038
-Elapsed time   : 0.119 s
+Nodes expanded : 1047
+Elapsed time   : 0.109 s
 --------------------
 

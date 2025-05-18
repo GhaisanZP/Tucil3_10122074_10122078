@@ -20,11 +20,19 @@ public class State implements Comparable<State> {
 
         // hitung h(n) jika A* atau GBFS
         if (Solver.useAStar || Solver.useGreedy) {
-            this.estimatedCost =
-                Heuristics.heuristic(board, exit, rows, cols);
-        } else {
-            this.estimatedCost = 0;
+        switch (Solver.heuristicMode) {
+            case MANHATTAN:
+                this.estimatedCost = Heuristics.manhattan(board, exit, rows, cols);
+                break;
+            case BLOCKING:
+                this.estimatedCost = Heuristics.blockingCount(board, exit, rows, cols);
+                break;
+            default:  // COMBINED
+                this.estimatedCost = Heuristics.combined(board, exit, rows, cols);
         }
+    } else {
+        this.estimatedCost = 0;
+    }
     }
 
     @Override

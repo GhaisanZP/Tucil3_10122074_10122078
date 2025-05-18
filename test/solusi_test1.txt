@@ -88,7 +88,7 @@ GHJ..F
 LLJMMF
 
 --- Search stats ---
-Nodes expanded : 411
-Elapsed time   : 0.065 s
+Nodes expanded : 246
+Elapsed time   : 0.066 s
 --------------------
 
