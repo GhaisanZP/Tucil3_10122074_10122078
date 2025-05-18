@@ -6,6 +6,7 @@ import model.*;
 public class Solver {
     public static boolean useAStar = false;
     public static boolean useGreedy = false;
+    public static boolean useBnB    = false;
     public static int rows, cols;
     public static boolean enableColor = true;
 
@@ -37,6 +38,8 @@ public class Solver {
         startTime = System.nanoTime();
         PriorityQueue<State> pq = new PriorityQueue<>();
         Set<String> visited = new HashSet<>();
+        int bestCost = Integer.MAX_VALUE;
+        State bestGoal = null;
 
         State start = new State(initialBoard, rows, cols, 0, null, exitPosition);
         pq.add(start);
@@ -51,15 +54,32 @@ public class Solver {
             nodesExpanded++;
             
             if (isGoal(current.board, exitPosition)) {
-                endTime = System.nanoTime();
-                printSolution(current);
-                printStats(nodesExpanded, startTime, endTime);
-                return;
+                //endTime = System.nanoTime();
+                //printSolution(current);
+                //printStats(nodesExpanded, startTime, endTime);
+                //return;
+                if (useBnB) {
+                    bestCost = current.cost;
+                    bestGoal = current;
+                    continue;
+                } else {
+                    endTime = System.nanoTime();
+                    printSolution(current);
+                    printStats(nodesExpanded, startTime, endTime);
+                    return;
+                }
             }
 
             for (State next : generateSuccessors(current, exitPosition)) {
+                if (useBnB && next.cost >= bestCost) continue;
                 pq.add(next);
             }
+        }
+        if (useBnB && bestGoal != null) {
+            endTime = System.nanoTime();
+            printSolution(bestGoal);
+            printStats(nodesExpanded, startTime, endTime);
+            return;
         }
 
         System.out.println("No solution found.");

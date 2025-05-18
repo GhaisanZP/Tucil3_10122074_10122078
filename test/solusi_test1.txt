@@ -89,6 +89,6 @@ LLJMMF
 
 --- Search stats ---
 Nodes expanded : 411
-Elapsed time   : 0.088 s
+Elapsed time   : 0.065 s
 --------------------
 

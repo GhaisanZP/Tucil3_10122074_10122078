@@ -1,4 +1,4 @@
-Running Uniform Cost Search...
+Running A* Search...
 Papan Awal
 ABBP..
 ACDP..
@@ -8,61 +8,61 @@ I....H
 I..JJJ
    K  
 
-Gerakan 1: J-kiri
-ABBP..
+Gerakan 1: A-bawah
+.BBP..
 ACDP..
-.CDEEE
+ACDEEE
 FFDGGH
+I....H
+I..JJJ
+   K  
+
+Gerakan 2: B-kiri
+BB.P..
+ACDP..
+ACDEEE
+FFDGGH
+I....H
+I..JJJ
+   K  
+
+Gerakan 3: D-atas
+BBDP..
+ACDP..
+ACDEEE
+FF.GGH
+I....H
+I..JJJ
+   K  
+
+Gerakan 4: J-kiri
+BBDP..
+ACDP..
+ACDEEE
+FF.GGH
 I....H
 I.JJJ.
    K  
 
-Gerakan 2: H-bawah
-ABBP..
-ACDP..
-.CDEEE
-FFDGG.
-I....H
-I.JJJH
-   K  
-
-Gerakan 3: G-kanan
-ABBP..
-ACDP..
-.CDEEE
-FFD.GG
-I....H
-I.JJJH
-   K  
-
-Gerakan 4: A-bawah
-.BBP..
-ACDP..
-ACDEEE
-FFD.GG
-I....H
-I.JJJH
-   K  
-
-Gerakan 5: B-kiri
-BB.P..
-ACDP..
-ACDEEE
-FFD.GG
-I....H
-I.JJJH
-   K  
-
-Gerakan 6: D-atas
+Gerakan 5: H-bawah
 BBDP..
 ACDP..
 ACDEEE
-FF..GG
+FF.GG.
 I....H
 I.JJJH
    K  
 
-Gerakan 7: F-kanan
+Gerakan 6: F-kanan
+BBDP..
+ACDP..
+ACDEEE
+.FFGG.
+I....H
+I.JJJH
+   K  
+
+Gerakan 7: G-kanan
 BBDP..
 ACDP..
 ACDEEE
@@ -116,79 +116,79 @@ IC...H
 ICJJJH
    K  
 
-Gerakan 13: G-kiri
+Gerakan 13: F-kiri
 BBDP..
 A.DP..
 A.DEEE
-.FFGG.
+FF..GG
 IC...H
 ICJJJH
    K  
 
-Gerakan 14: H-atas
-BBDP..
-A.DP..
-A.DEEE
-.FFGGH
-IC...H
-ICJJJ.
-   K  
-
-Gerakan 15: F-kiri
-BBDP..
-A.DP..
-A.DEEE
-FF.GGH
-IC...H
-ICJJJ.
-   K  
-
-Gerakan 16: D-bawah
+Gerakan 14: D-bawah
 BB.P..
 A.DP..
 A.DEEE
-FFDGGH
+FFD.GG
 IC...H
-ICJJJ.
+ICJJJH
    K  
 
-Gerakan 17: B-kanan
+Gerakan 15: B-kanan
 .BBP..
 A.DP..
 A.DEEE
-FFDGGH
+FFD.GG
 IC...H
-ICJJJ.
+ICJJJH
    K  
 
-Gerakan 18: J-kanan
-.BBP..
+Gerakan 16: A-atas
+ABBP..
 A.DP..
-A.DEEE
-FFDGGH
+..DEEE
+FFD.GG
 IC...H
-IC.JJJ
+ICJJJH
    K  
 
-Gerakan 19: D-bawah
-.BBP..
+Gerakan 17: G-kiri
+ABBP..
+A.DP..
+..DEEE
+FFDGG.
+IC...H
+ICJJJH
+   K  
+
+Gerakan 18: D-bawah
+ABBP..
 A..P..
-A.DEEE
+..DEEE
+FFDGG.
+ICD..H
+ICJJJH
+   K  
+
+Gerakan 19: H-atas
+ABBP..
+A..P..
+..DEEE
+FFDGGH
+ICD..H
+ICJJJ.
+   K  
+
+Gerakan 20: J-kanan
+ABBP..
+A..P..
+..DEEE
 FFDGGH
 ICD..H
 IC.JJJ
    K  
 
-Gerakan 20: D-bawah
-.BBP..
-A..P..
-A..EEE
-FFDGGH
-ICD..H
-ICDJJJ
-   K  
-
-Gerakan 21: A-atas
+Gerakan 21: D-bawah
 ABBP..
 A..P..
 ...EEE
@@ -314,16 +314,16 @@ IC...H
 IC.JJJ
    K  
 
-Gerakan 35: D-atas
-A.DPBB
+Gerakan 35: J-kiri
+A..PBB
 A.DP..
 ..DEEE
-FF.GGH
+FFDGGH
 IC...H
-IC.JJJ
+ICJJJ.
    K  
 
-Gerakan 36: J-kiri
+Gerakan 36: D-atas
 A.DPBB
 A.DP..
 ..DEEE
@@ -332,25 +332,25 @@ IC...H
 ICJJJ.
    K  
 
-Gerakan 37: H-bawah
+Gerakan 37: F-kanan
 A.DPBB
 A.DP..
 ..DEEE
-FF.GG.
+.FFGGH
+IC...H
+ICJJJ.
+   K  
+
+Gerakan 38: H-bawah
+A.DPBB
+A.DP..
+..DEEE
+.FFGG.
 IC...H
 ICJJJH
    K  
 
-Gerakan 38: G-kanan
-A.DPBB
-A.DP..
-..DEEE
-FF..GG
-IC...H
-ICJJJH
-   K  
-
-Gerakan 39: F-kanan
+Gerakan 39: G-kanan
 A.DPBB
 A.DP..
 ..DEEE
@@ -404,34 +404,34 @@ I....H
 I.JJJH
    K  
 
-Gerakan 45: G-kiri
+Gerakan 45: F-kiri
 A.DPBB
 ACDP..
 .CDEEE
-.FFGG.
+FF..GG
 I....H
 I.JJJH
    K  
 
-Gerakan 46: H-atas
-A.DPBB
+Gerakan 46: D-bawah
+A..PBB
 ACDP..
 .CDEEE
-.FFGGH
+FFD.GG
 I....H
-I.JJJ.
+I.JJJH
    K  
 
-Gerakan 47: F-kiri
-A.DPBB
+Gerakan 47: G-kiri
+A..PBB
 ACDP..
 .CDEEE
-FF.GGH
+FFDGG.
 I....H
-I.JJJ.
+I.JJJH
    K  
 
-Gerakan 48: D-bawah
+Gerakan 48: H-atas
 A..PBB
 ACDP..
 .CDEEE
@@ -440,16 +440,16 @@ I....H
 I.JJJ.
    K  
 
-Gerakan 49: J-kanan
+Gerakan 49: D-bawah
 A..PBB
-ACDP..
+AC.P..
 .CDEEE
 FFDGGH
-I....H
-I..JJJ
+I.D..H
+I.JJJ.
    K  
 
-Gerakan 50: D-bawah
+Gerakan 50: J-kanan
 A..PBB
 AC.P..
 .CDEEE
@@ -485,34 +485,34 @@ I.D...
 I.DJJJ
    K  
 
-Gerakan 54: C-atas
-AC.PBB
-AC.P..
-..EEEH
-FFDGGH
+Gerakan 54: H-atas
+A..PBB
+AC.P.H
+.CEEEH
+FFDGG.
 I.D...
 I.DJJJ
    K  
 
-Gerakan 55: E-kiri
+Gerakan 55: C-atas
 AC.PBB
-AC.P..
-.EEE.H
-FFDGGH
+AC.P.H
+..EEEH
+FFDGG.
 I.D...
 I.DJJJ
    K  
 
 Gerakan 56: E-kiri
 AC.PBB
-AC.P..
-EEE..H
-FFDGGH
+AC.P.H
+.EEE.H
+FFDGG.
 I.D...
 I.DJJJ
    K  
 
-Gerakan 57: H-atas
+Gerakan 57: E-kiri
 AC.PBB
 AC.P.H
 EEE..H
@@ -548,17 +548,8 @@ I.D...
 I.DJJJ
    K  
 
-Gerakan 61: B-kiri
-AC.BB.
-AC...H
-EEEP.H
-FFDPGG
-I.D...
-I.DJJJ
-   K  
-
-Gerakan 62: P-bawah
-AC.BB.
+Gerakan 61: P-bawah
+AC..BB
 AC...H
 EEE..H
 FFDPGG
@@ -566,25 +557,34 @@ I.DP..
 I.DJJJ
    K  
 
-Gerakan 63: H-atas
-AC.BBH
+Gerakan 62: E-kanan
+AC..BB
 AC...H
-EEE...
+.EEE.H
 FFDPGG
 I.DP..
 I.DJJJ
    K  
 
-Gerakan 64: E-kanan
-AC.BBH
+Gerakan 63: E-kanan
+AC..BB
 AC...H
-.EEE..
+..EEEH
 FFDPGG
 I.DP..
 I.DJJJ
    K  
 
-Gerakan 65: E-kanan
+Gerakan 64: B-kiri
+AC.BB.
+AC...H
+..EEEH
+FFDPGG
+I.DP..
+I.DJJJ
+   K  
+
+Gerakan 65: H-atas
 AC.BBH
 AC...H
 ..EEE.
@@ -611,34 +611,34 @@ I.DP..
 I..JJJ
    K  
 
-Gerakan 68: D-atas
+Gerakan 68: J-kiri
 AC.BBH
-ACD..H
+AC...H
 ..DEEE
 FFDPGG
-I..P..
-I..JJJ
+I.DP..
+I.JJJ.
    K  
 
 Gerakan 69: J-kiri
 AC.BBH
+AC...H
+..DEEE
+FFDPGG
+I.DP..
+IJJJ..
+   K  
+
+Gerakan 70: D-atas
+AC.BBH
 ACD..H
 ..DEEE
 FFDPGG
 I..P..
-I.JJJ.
+IJJJ..
    K  
 
-Gerakan 70: D-atas
-ACDBBH
-ACD..H
-..DEEE
-FF.PGG
-I..P..
-I.JJJ.
-   K  
-
-Gerakan 71: J-kiri
+Gerakan 71: D-atas
 ACDBBH
 ACD..H
 ..DEEE
@@ -693,7 +693,7 @@ JJJP..
    P  
 
 --- Search stats ---
-Nodes expanded : 1069
-Elapsed time   : 0.121 s
+Nodes expanded : 1038
+Elapsed time   : 0.119 s
 --------------------
 

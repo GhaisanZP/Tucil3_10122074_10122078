@@ -6,7 +6,7 @@ import util.Parser;
 public class RushHour {
     public static void main(String[] args) throws Exception {
         if (args.length < 2) {
-            System.out.println("Usage: java RushHour <filename> <ucs|gbfs|astar>");
+            System.out.println("Usage: java RushHour <filename> <ucs|gbfs|astar|bnb>");
             return;
         }
 
@@ -46,21 +46,31 @@ public class RushHour {
             case "ucs":
                 Solver.useAStar  = false;
                 Solver.useGreedy = false;
+                Solver.useBnB    = false;
                 System.out.println("Running Uniform Cost Search...");
                 break;
             case "astar":
                 Solver.useAStar  = true;
                 Solver.useGreedy = false;
+                Solver.useBnB    = false;
                 System.out.println("Running A* Search...");
                 break;
             case "gbfs":
                 Solver.useAStar  = false; 
-                Solver.useGreedy = true;   
-                System.out.println("Running Greedy Best‑First Search...");
+                Solver.useGreedy = true;  
+                Solver.useBnB    = false; 
+                System.out.println("Running Greedy Best First Search...");
+                break;
+            case "bnb":
+                Solver.useAStar  = false;
+                Solver.useGreedy = false;
+                Solver.useBnB    = true;
+                System.out.println("Running Branch and Bound Search...");
                 break;
             default:
                 Solver.useAStar  = true;
                 Solver.useGreedy = false;
+                Solver.useBnB    = false;
                 System.out.println("Running A* Search...");
                 break;
         }
