@@ -8,7 +8,7 @@ Program ini merupakan solver untuk permainan puzzle **Rush Hour**, yang ditulis 
 
 - Java JDK versi 11 atau lebih baru
 - Terminal / Command Prompt
-- File input puzzle dengan format teks
+- File input puzzle dengan format `.txt`
 
 ---
 
@@ -17,7 +17,7 @@ Program ini merupakan solver untuk permainan puzzle **Rush Hour**, yang ditulis 
 Jalankan perintah berikut dari direktori root (yang memuat folder `src/`):
 
 ```bash
-javac -d bin src/RushHour.java src/model/*.java src/solver/*.java src/util/*.java
+javac -d bin src/model/*.java src/util/*.java src/solver/*java src/RushHour.java src/RushHourGUI.java
 ````
 
 File hasil kompilasi akan disimpan dalam folder `bin/`.
@@ -29,46 +29,59 @@ File hasil kompilasi akan disimpan dalam folder `bin/`.
 Setelah proses kompilasi berhasil, kamu bisa menjalankan program dengan perintah:
 
 ```bash
-java -cp bin RushHour path/to/input.txt
+java -cp bin RushHour path/to/input.txt algorithm heuristic
 ```
 
 Contoh:
 
 ```bash
-java -cp bin RushHour test/input1.txt
+java -cp bin RushHour src/test1.txt astar combined
 ```
 
-Program akan menampilkan langkah-langkah penyelesaian puzzle dari kondisi awal ke kondisi goal.
+Program akan menampilkan langkah-langkah penyelesaian puzzle dari kondisi awal ke kondisi goal. Langkah-langkah yang dihasilkan akan dimasukkan ke dalam folder test dengan nama file `solusi_nama-file-input.txt`.
+
+Untuk menjalankan GUI, kamu bisa menjalankan perintah berikut:
+
+```bash
+java -cp bin RushHourGUI
+```
+
 
 ---
 
 ## 📄 Format File Input
 
-File input harus berformat sebagai berikut:
+Konfigurasi permainan/test case dalam format ekstensi `.txt`. File test
+case tersebut berisi:
+1. Dimensi Papan terdiri atas dua buah variabel **A** dan **B** yang membentuk
+papan berdimensi AxB.
+2. Banyak piece BUKAN primary piece direpresentasikan oleh variabel
+integer **N**.
+3. Konfigurasi papan yang mencakup penempatan piece dan primary piece,
+serta lokasi pintu keluar. Primary Piece dilambangkan dengan huruf **P** dan
+pintu keluar dilambangkan dengan huruf **K**. Piece dilambangkan dengan
+huruf dan karakter selain **P** dan **K**, dan huruf/karakter berbeda
+melambangkan piece yang berbeda. Cell kosong dilambangkan dengan
+karakter `.` (titik).
 
+File `.txt` yang akan dibaca memiliki format sebagai berikut:
+
+```
+A B
+N
+konfigurasi_papan
+```
+Contoh input test case:
 ```
 6 6
-X 2 0 H 2
-A 0 0 V 3
-B 3 1 V 2
-...
+12
+AAB..F
+..BCDF
+GPPCDFK
+GH.III
+GHJ...
+LLJMM.
 ```
-
-Penjelasan:
-
-* Baris pertama: ukuran papan (baris kolom), misalnya `6 6` berarti papan 6x6.
-* Baris selanjutnya: daftar kendaraan dalam format:
-
-  ```
-  ID row col orientasi panjang
-  ```
-
-  * `ID`        = huruf kapital (contoh: X, A, B, ...)
-  * `row col`   = posisi awal (baris, kolom) kendaraan
-  * `orientasi` = `H` (horizontal) atau `V` (vertikal)
-  * `panjang`   = panjang kendaraan dalam satuan kotak
-
-Mobil `X` adalah mobil merah yang harus dikeluarkan ke sisi kanan papan.
 
 ---
 
