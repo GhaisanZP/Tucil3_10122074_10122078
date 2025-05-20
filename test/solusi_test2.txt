@@ -1,4 +1,4 @@
-Running Greedy Best First Search...
+Running A* Search...
 Papan Awal
   K   
 A.GGGL
@@ -6,73 +6,41 @@ A.PHHL
 BBP.JJ
 .CCI.M
 .DDI.M
-FFFI..
 
-Gerakan 1: D-kiri
-  K   
-A.GGGL
-A.PHHL
-BBP.JJ
-.CCI.M
-DD.I.M
-FFFI..
-
-Gerakan 2: J-kiri
+Gerakan 1: J-kiri
   K   
 A.GGGL
 A.PHHL
 BBPJJ.
 .CCI.M
-DD.I.M
-FFFI..
+.DDI.M
 
-Gerakan 3: M-bawah
-  K   
-A.GGGL
-A.PHHL
-BBPJJ.
-.CCI..
-DD.I.M
-FFFI.M
-
-Gerakan 4: L-bawah
+Gerakan 2: L-bawah
   K   
 A.GGG.
 A.PHHL
 BBPJJL
-.CCI..
-DD.I.M
-FFFI.M
+.CCI.M
+.DDI.M
 
-Gerakan 5: G-kanan
+Gerakan 3: G-kanan
   K   
 A..GGG
 A.PHHL
 BBPJJL
-.CCI..
-DD.I.M
-FFFI.M
+.CCI.M
+.DDI.M
 
-Gerakan 6: P-atas
+Gerakan 4: P-atas
   K   
-A.PGGG
-A.PHHL
-BB.JJL
-.CCI..
-DD.I.M
-FFFI.M
-
-Gerakan 7: P-atas
-  P   
-A.PGGG
+A..GGG
 A..HHL
 BB.JJL
-.CCI..
-DD.I.M
-FFFI.M
+.CCI.M
+.DDI.M
 
 --- Search stats ---
-Nodes expanded : 39
-Elapsed time   : 0.035 s
+Nodes expanded : 21
+Elapsed time   : 0.015 s
 --------------------
 

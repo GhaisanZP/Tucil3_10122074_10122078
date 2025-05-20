@@ -1,94 +1,54 @@
-Running A* Search...
+Running Uniform Cost Search...
 Papan Awal
-AAB..F
-..BCDF
+AAB..F 
+..BCDF 
 GPPCDFK
-GH.III
-GHJ...
-LLJMM.
+GH.III 
+GHJ... 
+LLJMM. 
 
 Gerakan 1: C-atas
-AABC.F
-..BCDF
+AABC.F 
+..BCDF 
 GPP.DFK
-GH.III
-GHJ...
-LLJMM.
+GH.III 
+GHJ... 
+LLJMM. 
 
 Gerakan 2: D-atas
-AABCDF
-..BCDF
+AABCDF 
+..BCDF 
 GPP..FK
-GH.III
-GHJ...
-LLJMM.
+GH.III 
+GHJ... 
+LLJMM. 
 
-Gerakan 3: P-kanan
-AABCDF
-..BCDF
-G.PP.FK
-GH.III
-GHJ...
-LLJMM.
+Gerakan 3: I-kiri
+AABCDF 
+..BCDF 
+GPP..FK
+GHIII. 
+GHJ... 
+LLJMM. 
 
-Gerakan 4: P-kanan
-AABCDF
-..BCDF
-G..PPFK
-GH.III
-GHJ...
-LLJMM.
+Gerakan 4: F-bawah
+AABCD. 
+..BCD. 
+GPP...K
+GHIIIF 
+GHJ..F 
+LLJMMF 
 
-Gerakan 5: I-kiri
-AABCDF
-..BCDF
-G..PPFK
-GHIII.
-GHJ...
-LLJMM.
-
-Gerakan 6: F-bawah
-AABCD.
-..BCDF
-G..PPFK
-GHIIIF
-GHJ...
-LLJMM.
-
-Gerakan 7: F-bawah
-AABCD.
-..BCD.
-G..PPFK
-GHIIIF
-GHJ..F
-LLJMM.
-
-Gerakan 8: F-bawah
-AABCD.
-..BCD.
-G..PP.K
-GHIIIF
-GHJ..F
-LLJMMF
-
-Gerakan 9: P-kanan
-AABCD.
-..BCD.
-G...PPK
-GHIIIF
-GHJ..F
-LLJMMF
-
-Gerakan 10: P-kanan
-AABCD.
-..BCD.
-G....PP
-GHIIIF
-GHJ..F
-LLJMMF
+Gerakan 5: P-kanan
+AABCD. 
+..BCD. 
+G.....K
+GHIIIF 
+GHJ..F 
+LLJMMF 
 
 --- Search stats ---
-Nodes expanded : 246
-Elapsed time   : 0.066 s
+Nodes expanded : 189
+Elapsed time   : 0.032 s
 --------------------
 

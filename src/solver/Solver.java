@@ -33,6 +33,7 @@ public class Solver {
     private static Position exitPosition;
     private static long nodesExpanded;
     private static long startTime, endTime;
+    private static long elapsedNanos;
 
     /**
      * Fungsi utama untuk menjalankan algoritma pencarian dari kondisi awal.
@@ -307,5 +308,57 @@ public class Solver {
             }
             System.out.println();
         }
+    }
+
+    public static List<char[][]> solveAndReturnPath(
+            char[][] initialBoard, int n_rows, int n_cols, Position exit) {
+        rows = n_rows;
+        cols = n_cols;
+        exitPosition = exit;
+        nodesExpanded = 0;
+        long start = System.nanoTime();
+
+        PriorityQueue<State> pq = new PriorityQueue<>();
+        Set<String> visited = new HashSet<>();
+        State goalState = null;
+
+        pq.add(new State(initialBoard, rows, cols, 0, null, exit));
+
+        while (!pq.isEmpty()) {
+            State current = pq.poll();
+            String key = boardToString(current.board);
+            if (visited.contains(key)) continue;
+            visited.add(key);
+            nodesExpanded++;
+
+            if (isGoal(current.board, exitPosition)) {
+                goalState = current;
+                break;
+            }
+            for (State next : generateSuccessors(current, exitPosition)) {
+                pq.add(next);
+            }
+        }
+
+        elapsedNanos = System.nanoTime() - start;
+
+        if (goalState == null) return Collections.emptyList();
+
+        LinkedList<char[][]> path = new LinkedList<>();
+        for (State s = goalState; s != null; s = s.parent) {
+            char[][] copy = new char[rows][cols];
+            for (int r = 0; r < rows; r++) copy[r] = s.board[r].clone();
+            path.addFirst(copy);
+        }
+        return path;
+    }
+
+    /** GUI akan memanggil ini untuk menampilkan “banyak node” */
+    public static long getNodesExpanded() {
+        return nodesExpanded;
+    }
+    /** GUI akan memanggil ini untuk menampilkan “waktu” dalam detik */
+    public static double getElapsedSeconds() {
+        return elapsedNanos / 1_000_000_000.0;
     }
 }
