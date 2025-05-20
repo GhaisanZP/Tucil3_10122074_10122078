@@ -1,4 +1,4 @@
-Running A* Search...
+Running Branch and Bound Search...
 Papan Awal
 AAB..F
 ..BCDF
@@ -7,48 +7,56 @@ GH.III
 GHJ...
 LLJMM.
 
-Gerakan 1: I-kiri
+Gerakan 1: G-atas
 AAB..F
-..BCDF
+G.BCDF
 GPPCDFK
-GHIII.
-GHJ...
+GH.III
+.HJ...
 LLJMM.
 
 Gerakan 2: D-atas
 AAB.DF
-..BCDF
+G.BCDF
 GPPC.FK
-GHIII.
-GHJ...
+GH.III
+.HJ...
 LLJMM.
 
-Gerakan 3: F-bawah
+Gerakan 3: I-kiri
+AAB.DF
+G.BCDF
+GPPC.FK
+GHIII.
+.HJ...
+LLJMM.
+
+Gerakan 4: F-bawah
 AAB.D.
-..BCD.
+G.BCD.
 GPPC..K
 GHIIIF
-GHJ..F
+.HJ..F
 LLJMMF
 
-Gerakan 4: C-atas
+Gerakan 5: C-atas
 AABCD.
-..BCD.
+G.BCD.
 GPP...K
 GHIIIF
-GHJ..F
+.HJ..F
 LLJMMF
 
-Gerakan 5: P-kanan
+Gerakan 6: P-kanan
 AABCD.
-..BCD.
-G....PP
+G.BCD.
+G.....K
 GHIIIF
-GHJ..F
+.HJ..F
 LLJMMF
 
 --- Search stats ---
-Nodes expanded : 59
-Elapsed time   : 0,352 s
+Nodes expanded : 384
+Elapsed time   : 0,253 s
 --------------------
 

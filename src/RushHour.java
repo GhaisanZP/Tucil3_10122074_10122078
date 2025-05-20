@@ -6,9 +6,11 @@ import util.Parser;
 public class RushHour {
     public static void main(String[] args) throws Exception {
         // Validasi jumlah argumen yang diberikan
-        if (args.length < 2) {
-            System.out.println("Usage: java RushHour <filename> <ucs|gbfs|astar|bnb> <manhattan|blocking|combined>");
-            return;
+        if (args.length <= 2) {
+            if (!args[1].equals("ucs") && !args[1].equals("bnb")) {
+                System.out.println("Usage: java RushHour <filename> <ucs|gbfs|astar|bnb> <manhattan|blocking|combined>");
+                return;
+            }
         }
 
         // Menyiapkan file output berdasarkan nama file input
@@ -57,20 +59,23 @@ public class RushHour {
         }, true));
 
         // Menentukan mode heuristik berdasarkan argumen ketiga
-        String heu = args[2].toLowerCase();
-        switch (heu) {
-            case "manhattan":
-                Solver.heuristicMode = Solver.HeuristicMode.MANHATTAN;
-                break;
-            case "blocking":
-                Solver.heuristicMode = Solver.HeuristicMode.BLOCKING;
-                break;
-            case "combined":
-                Solver.heuristicMode = Solver.HeuristicMode.COMBINED;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown heuristic: " + heu);
+        if (!args[1].equals("ucs") && !args[1].equals("bnb")) {
+            String heu = args[2].toLowerCase();
+            switch (heu) {
+                case "manhattan":
+                    Solver.heuristicMode = Solver.HeuristicMode.MANHATTAN;
+                    break;
+                case "blocking":
+                    Solver.heuristicMode = Solver.HeuristicMode.BLOCKING;
+                    break;
+                case "combined":
+                    Solver.heuristicMode = Solver.HeuristicMode.COMBINED;
+                    break;
+                default:
+                    throw new IllegalArgumentException("Unknown heuristic: " + heu);
+            }
         }
+
 
         // Menentukan algoritma yang digunakan berdasarkan argumen kedua
         String alg = args[1].toLowerCase();

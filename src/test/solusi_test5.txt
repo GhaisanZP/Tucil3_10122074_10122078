@@ -1,4 +1,4 @@
-Running A* Search...
+Running Uniform Cost Search...
 Papan Awal
 A...CD
 ABBBCD
@@ -47,15 +47,15 @@ PP.FCGK
 A.EIJJ
 A.EI..
 
-Gerakan 6: B-kiri
+Gerakan 6: H-kiri
 ....CD
-BBB.CD
+.BBBCD
 PP.FCGK
-.HHF.G
+HH.F.G
 A.EIJJ
 A.EI..
 
-Gerakan 7: H-kiri
+Gerakan 7: B-kiri
 ....CD
 BBB.CD
 PP.FCGK
@@ -63,15 +63,15 @@ HH.F.G
 A.EIJJ
 A.EI..
 
-Gerakan 8: F-atas
-...FCD
-BBBFCD
-PP..CGK
-HH...G
-A.EIJJ
-A.EI..
+Gerakan 8: E-atas
+....CD
+BBB.CD
+PPEFCGK
+HHEF.G
+A..IJJ
+A..I..
 
-Gerakan 9: E-atas
+Gerakan 9: F-atas
 ...FCD
 BBBFCD
 PPE.CGK
@@ -95,39 +95,39 @@ HHEI.G
 AJJ...
 A.....
 
-Gerakan 12: C-bawah
-...F.D
-BBBF.D
-PPEI.GK
-HHEICG
-AJJ.C.
-A...C.
+Gerakan 12: I-bawah
+...FCD
+BBBFCD
+PPE.CGK
+HHE..G
+AJJI..
+A..I..
 
-Gerakan 13: I-bawah
-...F.D
-BBBF.D
-PPE..GK
-HHE.CG
-AJJIC.
-A..IC.
+Gerakan 13: G-bawah
+...FCD
+BBBFCD
+PPE.C.K
+HHE...
+AJJI.G
+A..I.G
 
-Gerakan 14: F-bawah
-.....D
-BBB..D
-PPEF.GK
-HHEFCG
-AJJIC.
-A..IC.
+Gerakan 14: D-bawah
+...FC.
+BBBFC.
+PPE.CDK
+HHE..D
+AJJI.G
+A..I.G
 
-Gerakan 15: G-bawah
-.....D
-BBB..D
-PPEF..K
-HHEFC.
-AJJICG
-A..ICG
+Gerakan 15: F-bawah
+....C.
+BBB.C.
+PPEFCDK
+HHEF.D
+AJJI.G
+A..I.G
 
-Gerakan 16: D-bawah
+Gerakan 16: C-bawah
 ......
 BBB...
 PPEF.DK
@@ -175,15 +175,15 @@ A.EBBB
 .JJICG
 ...ICG
 
-Gerakan 22: H-kiri
+Gerakan 22: P-kiri
 A.E...
 A.EBBB
-.PPF.DK
-HH.FCD
+PP.F.DK
+.HHFCD
 .JJICG
 ...ICG
 
-Gerakan 23: P-kiri
+Gerakan 23: H-kiri
 A.E...
 A.EBBB
 PP.F.DK
@@ -264,7 +264,7 @@ JJEICG
 ..EICG
 
 --- Search stats ---
-Nodes expanded : 882
-Elapsed time   : 0,643 s
+Nodes expanded : 1160
+Elapsed time   : 0,702 s
 --------------------
 
