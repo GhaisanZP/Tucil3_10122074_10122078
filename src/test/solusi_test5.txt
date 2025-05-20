@@ -258,13 +258,13 @@ JJEICG
 Gerakan 32: P-kanan
 ...F.D
 BBBF.D
-A....PP
+A.....K
 AHH.C.
 JJEICG
 ..EICG
 
 --- Search stats ---
 Nodes expanded : 882
-Elapsed time   : 0,886 s
+Elapsed time   : 0,643 s
 --------------------
 
