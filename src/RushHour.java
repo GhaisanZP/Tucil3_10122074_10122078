@@ -6,7 +6,11 @@ import util.Parser;
 public class RushHour {
     public static void main(String[] args) throws Exception {
         // Validasi jumlah argumen yang diberikan
-        if (args.length <= 2) {
+        if (args.length < 3) {
+            if (args.length < 2) {
+                System.out.println("Usage: java RushHour <filename> <ucs|gbfs|astar|bnb> <manhattan|blocking|combined>");
+                return;
+            }
             if (!args[1].equals("ucs") && !args[1].equals("bnb")) {
                 System.out.println("Usage: java RushHour <filename> <ucs|gbfs|astar|bnb> <manhattan|blocking|combined>");
                 return;
