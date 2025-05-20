@@ -1,4 +1,4 @@
-Running Uniform Cost Search...
+Running A* Search...
 Papan Awal
 ABBP..
 ACDP..
@@ -26,34 +26,34 @@ I....H
 I.JJJH
    K  
 
-Gerakan 3: G-kanan
-ABBP..
-ACDP..
-.CDEEE
-FFD.GG
-I....H
-I.JJJH
-   K  
-
-Gerakan 4: A-bawah
+Gerakan 3: A-bawah
 .BBP..
 ACDP..
 ACDEEE
-FFD.GG
+FFDGG.
 I....H
 I.JJJH
    K  
 
-Gerakan 5: B-kiri
+Gerakan 4: B-kiri
 BB.P..
 ACDP..
 ACDEEE
-FFD.GG
+FFDGG.
 I....H
 I.JJJH
    K  
 
-Gerakan 6: D-atas
+Gerakan 5: D-atas
+BBDP..
+ACDP..
+ACDEEE
+FF.GG.
+I....H
+I.JJJH
+   K  
+
+Gerakan 6: G-kanan
 BBDP..
 ACDP..
 ACDEEE
@@ -296,43 +296,43 @@ I.D..H
 I.DJJJ
    K  
 
-Gerakan 33: H-atas
-AC.PBB
+Gerakan 33: P-bawah
+AC..BB
+AC.P..
+EEEP..
+FFDGGH
+I.D..H
+I.DJJJ
+   K  
+
+Gerakan 34: B-kiri
+AC.BB.
+AC.P..
+EEEP..
+FFDGGH
+I.D..H
+I.DJJJ
+   K  
+
+Gerakan 35: H-atas
+AC.BBH
 AC.P.H
-EEE..H
+EEEP..
 FFDGG.
 I.D...
 I.DJJJ
    K  
 
-Gerakan 34: G-kanan
-AC.PBB
+Gerakan 36: G-kanan
+AC.BBH
 AC.P.H
-EEE..H
+EEEP..
 FFD.GG
 I.D...
 I.DJJJ
    K  
 
-Gerakan 35: P-bawah
-AC..BB
-AC...H
-EEE..H
-FFDPGG
-I.DP..
-I.DJJJ
-   K  
-
-Gerakan 36: B-kiri
-AC.BB.
-AC...H
-EEE..H
-FFDPGG
-I.DP..
-I.DJJJ
-   K  
-
-Gerakan 37: H-atas
+Gerakan 37: P-bawah
 AC.BBH
 AC...H
 EEE...
@@ -371,32 +371,32 @@ I..JJJ
 Gerakan 41: I-atas
 ACDBBH
 ACD..H
-..DEEE
+I.DEEE
 IFFPGG
-I..P..
+...P..
 ...JJJ
    K  
 
 Gerakan 42: J-kiri
 ACDBBH
 ACD..H
-..DEEE
+I.DEEE
 IFFPGG
-I..P..
+...P..
 JJJ...
    K  
 
 Gerakan 43: P-bawah
 ACDBBH
 ACD..H
-..DEEE
+I.DEEE
 IFF.GG
-I.....
+......
 JJJP..
    P  
 
 --- Search stats ---
-Nodes expanded : 1067
-Elapsed time   : 0,497 s
+Nodes expanded : 1047
+Elapsed time   : 0,380 s
 --------------------
 

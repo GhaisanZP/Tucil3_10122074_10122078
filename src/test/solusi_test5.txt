@@ -1,0 +1,270 @@
+Running A* Search...
+Papan Awal
+A...CD
+ABBBCD
+PPEFCGK
+HHEF.G
+...IJJ
+...I..
+
+Gerakan 1: E-bawah
+A...CD
+ABBBCD
+PP.FCGK
+HH.F.G
+..EIJJ
+..EI..
+
+Gerakan 2: P-kanan
+A...CD
+ABBBCD
+.PPFCGK
+HH.F.G
+..EIJJ
+..EI..
+
+Gerakan 3: H-kanan
+A...CD
+ABBBCD
+.PPFCGK
+.HHF.G
+..EIJJ
+..EI..
+
+Gerakan 4: A-bawah
+....CD
+.BBBCD
+.PPFCGK
+.HHF.G
+A.EIJJ
+A.EI..
+
+Gerakan 5: P-kiri
+....CD
+.BBBCD
+PP.FCGK
+.HHF.G
+A.EIJJ
+A.EI..
+
+Gerakan 6: B-kiri
+....CD
+BBB.CD
+PP.FCGK
+.HHF.G
+A.EIJJ
+A.EI..
+
+Gerakan 7: H-kiri
+....CD
+BBB.CD
+PP.FCGK
+HH.F.G
+A.EIJJ
+A.EI..
+
+Gerakan 8: F-atas
+...FCD
+BBBFCD
+PP..CGK
+HH...G
+A.EIJJ
+A.EI..
+
+Gerakan 9: E-atas
+...FCD
+BBBFCD
+PPE.CGK
+HHE..G
+A..IJJ
+A..I..
+
+Gerakan 10: I-atas
+...FCD
+BBBFCD
+PPEICGK
+HHEI.G
+A...JJ
+A.....
+
+Gerakan 11: J-kiri
+...FCD
+BBBFCD
+PPEICGK
+HHEI.G
+AJJ...
+A.....
+
+Gerakan 12: C-bawah
+...F.D
+BBBF.D
+PPEI.GK
+HHEICG
+AJJ.C.
+A...C.
+
+Gerakan 13: I-bawah
+...F.D
+BBBF.D
+PPE..GK
+HHE.CG
+AJJIC.
+A..IC.
+
+Gerakan 14: F-bawah
+.....D
+BBB..D
+PPEF.GK
+HHEFCG
+AJJIC.
+A..IC.
+
+Gerakan 15: G-bawah
+.....D
+BBB..D
+PPEF..K
+HHEFC.
+AJJICG
+A..ICG
+
+Gerakan 16: D-bawah
+......
+BBB...
+PPEF.DK
+HHEFCD
+AJJICG
+A..ICG
+
+Gerakan 17: B-kanan
+......
+...BBB
+PPEF.DK
+HHEFCD
+AJJICG
+A..ICG
+
+Gerakan 18: E-atas
+..E...
+..EBBB
+PP.F.DK
+HH.FCD
+AJJICG
+A..ICG
+
+Gerakan 19: P-kanan
+..E...
+..EBBB
+.PPF.DK
+HH.FCD
+AJJICG
+A..ICG
+
+Gerakan 20: H-kanan
+..E...
+..EBBB
+.PPF.DK
+.HHFCD
+AJJICG
+A..ICG
+
+Gerakan 21: A-atas
+A.E...
+A.EBBB
+.PPF.DK
+.HHFCD
+.JJICG
+...ICG
+
+Gerakan 22: H-kiri
+A.E...
+A.EBBB
+.PPF.DK
+HH.FCD
+.JJICG
+...ICG
+
+Gerakan 23: P-kiri
+A.E...
+A.EBBB
+PP.F.DK
+HH.FCD
+.JJICG
+...ICG
+
+Gerakan 24: J-kiri
+A.E...
+A.EBBB
+PP.F.DK
+HH.FCD
+JJ.ICG
+...ICG
+
+Gerakan 25: E-bawah
+A.....
+A..BBB
+PP.F.DK
+HH.FCD
+JJEICG
+..EICG
+
+Gerakan 26: P-kanan
+A.....
+A..BBB
+.PPF.DK
+HH.FCD
+JJEICG
+..EICG
+
+Gerakan 27: H-kanan
+A.....
+A..BBB
+.PPF.DK
+.HHFCD
+JJEICG
+..EICG
+
+Gerakan 28: A-bawah
+......
+...BBB
+APPF.DK
+AHHFCD
+JJEICG
+..EICG
+
+Gerakan 29: B-kiri
+......
+BBB...
+APPF.DK
+AHHFCD
+JJEICG
+..EICG
+
+Gerakan 30: D-atas
+.....D
+BBB..D
+APPF..K
+AHHFC.
+JJEICG
+..EICG
+
+Gerakan 31: F-atas
+...F.D
+BBBF.D
+APP...K
+AHH.C.
+JJEICG
+..EICG
+
+Gerakan 32: P-kanan
+...F.D
+BBBF.D
+A....PP
+AHH.C.
+JJEICG
+..EICG
+
+--- Search stats ---
+Nodes expanded : 882
+Elapsed time   : 0,886 s
+--------------------
+

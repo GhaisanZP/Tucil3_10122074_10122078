@@ -1,4 +1,4 @@
-Running Uniform Cost Search...
+Running A* Search...
 Papan Awal
   K   
 A.GGGL
@@ -45,7 +45,7 @@ BB.JJL
 FFFI..
 
 --- Search stats ---
-Nodes expanded : 93
-Elapsed time   : 0,138 s
+Nodes expanded : 64
+Elapsed time   : 0,543 s
 --------------------
 
