@@ -1,59 +1,78 @@
-# Rush Hour Puzzle Solver
-Program ini adalah solver untuk puzzle Rush Hour yang ditulis dalam bahasa Java. Program ini membaca konfigurasi awal puzzle dari file teks, kemudian menyelesaikan puzzle menggunakan algoritma pencarian seperti A*, Greedy, atau Branch and Bound, tergantung implementasi dalam Solver.java.
+# 🚗 Rush Hour Puzzle Solver
 
-# Fitur
-Parsing konfigurasi puzzle dari file.
+Program ini merupakan solver untuk permainan puzzle **Rush Hour**, yang ditulis dalam bahasa **Java**. Program akan membaca konfigurasi awal puzzle dari sebuah file teks, lalu menyelesaikannya menggunakan algoritma pencarian (seperti A*, Greedy, atau Branch and Bound) yang diimplementasikan pada kelas `Solver`.
 
-Mencetak langkah-langkah solusi menuju goal state.
+---
 
-Struktur kode modular: model, solver, dan util.
+## ⚙️ Requirements
 
-# Requirement
-Java JDK 11 atau lebih baru
+- Java JDK versi 11 atau lebih baru
+- Terminal / Command Prompt
+- File input puzzle dengan format teks
 
-Terminal / Command Prompt
+---
 
-File konfigurasi puzzle (.txt) dengan format yang sesuai
+## 🛠️ Cara Kompilasi
 
-# Cara Kompilasi
-Jalankan perintah berikut dari root directory project (direktori yang berisi folder src/):
+Jalankan perintah berikut dari direktori root (yang memuat folder `src/`):
 
-bash
-Copy
-Edit
+```bash
 javac -d bin src/RushHour.java src/model/*.java src/solver/*.java src/util/*.java
-File hasil kompilasi akan disimpan di dalam folder bin/.
+````
 
-# Cara Menjalankan Program
-Setelah kompilasi berhasil, jalankan program menggunakan perintah:
+File hasil kompilasi akan disimpan dalam folder `bin/`.
 
-bash
-Copy
-Edit
+---
+
+## ▶️ Cara Menjalankan Program
+
+Setelah proses kompilasi berhasil, kamu bisa menjalankan program dengan perintah:
+
+```bash
 java -cp bin RushHour path/to/input.txt
+```
+
 Contoh:
 
-bash
-Copy
-Edit
+```bash
 java -cp bin RushHour test/input1.txt
-Format File Input
-Pastikan file input mengikuti format tertentu seperti:
+```
 
-css
-Copy
-Edit
+Program akan menampilkan langkah-langkah penyelesaian puzzle dari kondisi awal ke kondisi goal.
+
+---
+
+## 📄 Format File Input
+
+File input harus berformat sebagai berikut:
+
+```
 6 6
 X 2 0 H 2
 A 0 0 V 3
 B 3 1 V 2
 ...
-Keterangan:
+```
 
-Baris pertama menyatakan ukuran papan (baris x kolom)
+Penjelasan:
 
-Baris selanjutnya menyatakan mobil-mobil: ID row col orientasi panjang
+* Baris pertama: ukuran papan (baris kolom), misalnya `6 6` berarti papan 6x6.
+* Baris selanjutnya: daftar kendaraan dalam format:
 
-# Author
+  ```
+  ID row col orientasi panjang
+  ```
+
+  * `ID`        = huruf kapital (contoh: X, A, B, ...)
+  * `row col`   = posisi awal (baris, kolom) kendaraan
+  * `orientasi` = `H` (horizontal) atau `V` (vertikal)
+  * `panjang`   = panjang kendaraan dalam satuan kotak
+
+Mobil `X` adalah mobil merah yang harus dikeluarkan ke sisi kanan papan.
+
+---
+
+## 👨‍💻 Author
+
 * Muhammad Zakkiy (10122074)
 * Ghaisan Zaki Pratama (10122078)
