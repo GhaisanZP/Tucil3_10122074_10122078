@@ -1,60 +1,87 @@
 package util;
 
 import java.io.*;
+import java.nio.file.*;
+import java.util.*;
 import model.Position;
 
 public class Parser {
-    // Menyimpan posisi pintu keluar (ditandai dengan 'K' di papan)
     public static Position exit;
-
-    // Menyimpan jumlah baris dan kolom papan
     public static int rows, cols;
 
     /**
-     * Mem-parsing input dari file untuk membentuk papan permainan.
-     * @param filename Nama file input.
-     * @param dimensions Array yang digunakan untuk menyimpan dimensi papan [rows, cols].
-     * @return Matriks karakter yang merepresentasikan papan permainan.
-    */
+     * Membaca file, menambah baris/kolom jika K berada di luar grid,
+     * dan mengembalikan board final beserta exit position.
+     */
     public static char[][] parseInput(String filename, int[] dimensions) throws IOException {
-        int n_line = countLines(filename);  // Hitung total baris dalam file
-        BufferedReader br = new BufferedReader(new FileReader(filename));
+        List<String> lines = Files.readAllLines(Paths.get(filename));
 
-        // Baca baris pertama untuk mendapatkan ukuran papan
-        String[] size = br.readLine().split(" ");
-        rows = n_line - 2;  // Mengabaikan dua baris pertama (ukuran dan jumlah pieces)
-        cols = Integer.parseInt(size[1]);
+        // baris 0: "R C"
+        String[] size = lines.get(0).trim().split("\\s+");
+        int origR = Integer.parseInt(size[0]);
+        int origC = Integer.parseInt(size[1]);
 
+        // baris 1: jumlah pieces (abaikan)
+        List<String> gridLines = lines.subList(2, lines.size());
+
+        // cari posisi K dalam gridLines (raw index)
+        int rawR = -1, rawC = -1;
+        for (int i = 0; i < gridLines.size(); i++) {
+            int idx = gridLines.get(i).indexOf('K');
+            if (idx != -1) {
+                rawR = i;
+                rawC = idx;
+                break;
+            }
+        }
+        if (rawR == -1) {
+            throw new IllegalArgumentException("Tidak ditemukan huruf K di input.");
+        }
+
+        // tentukan extra top/bottom/left/right
+        boolean extraTop    = rawR < 0;
+        boolean extraBottom = rawR >= origR;
+        boolean extraLeft   = rawC < 0;
+        boolean extraRight  = rawC >= origC;
+
+        // ukuran akhir
+        rows = origR + (extraTop ? 1 : 0) + (extraBottom ? 1 : 0);
+        cols = origC + (extraLeft ? 1 : 0) + (extraRight ? 1 : 0);
+
+        // simpan ke dimensions
         dimensions[0] = rows;
         dimensions[1] = cols;
 
-        br.readLine(); // Lewati baris jumlah pieces
-
+        // buat board dengan spasi
         char[][] board = new char[rows][cols];
-
-        // Baca setiap baris papan permainan
         for (int i = 0; i < rows; i++) {
-            String line = br.readLine();
+            Arrays.fill(board[i], ' ');
+        }
 
-            // Jika panjang baris kurang dari jumlah kolom, tambahkan spasi di akhir
-            if (line.length() < cols) {
-                int padding = cols - line.length();
-                line = line + " ".repeat(padding);  // Tambah padding spasi
-            }
+        // hitung offset kalau ada extra top/left
+        int rowOff = extraTop ? 1 : 0;
+        int colOff = extraLeft ? 1 : 0;
 
-            board[i] = line.toCharArray();
-
-            // Cari posisi keluar (K)
-            for (int j = 0; j < board[i].length; j++) {
-                if (board[i][j] == 'K') {
-                    exit = new Position(i, j);  // Simpan posisi keluar
+        // copy grid asli (tanpa K) ke board
+        for (int i = 0; i < origR; i++) {
+            String line = gridLines.get(i);
+            for (int j = 0; j < origC; j++) {
+                char c = (j < line.length() ? line.charAt(j) : ' ');
+                if (c != 'K') {
+                    board[i + rowOff][j + colOff] = c;
                 }
             }
         }
 
-        br.close();
+        // hitung posisi exit di board akhir
+        int exitR = rawR + rowOff;
+        int exitC = rawC + colOff;
+        board[exitR][exitC] = 'K';
+        exit = new Position(exitR, exitC);
+
         return board;
     }
+
 
     /**
      * Menghitung jumlah baris dalam file input.
