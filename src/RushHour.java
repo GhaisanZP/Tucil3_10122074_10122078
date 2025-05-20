@@ -21,7 +21,7 @@ public class RushHour {
         if (args.length < 3) {
             outputPath = Paths.get("test", "solusi_" + args[1] + "_" + inputName) ;
         } else {
-            outputPath = Paths.get("test", "solusi_" + inputName + "_" + args[1] + "_" + args[2]);
+            outputPath = Paths.get("test", "solusi_" + "_" + args[1] + "_" + args[2] + "_" + inputName);
         }
         Files.createDirectories(outputPath.getParent());
         PrintStream fileOut = new PrintStream(new FileOutputStream(outputPath.toFile()), true);
