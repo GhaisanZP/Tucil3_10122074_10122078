@@ -1,21 +1,21 @@
-🚗 Rush Hour Puzzle Solver
+# Rush Hour Puzzle Solver
 Program ini adalah solver untuk puzzle Rush Hour yang ditulis dalam bahasa Java. Program ini membaca konfigurasi awal puzzle dari file teks, kemudian menyelesaikan puzzle menggunakan algoritma pencarian seperti A*, Greedy, atau Branch and Bound, tergantung implementasi dalam Solver.java.
 
-📋 Fitur
+# Fitur
 Parsing konfigurasi puzzle dari file.
 
 Mencetak langkah-langkah solusi menuju goal state.
 
 Struktur kode modular: model, solver, dan util.
 
-⚙️ Requirement
+# Requirement
 Java JDK 11 atau lebih baru
 
 Terminal / Command Prompt
 
 File konfigurasi puzzle (.txt) dengan format yang sesuai
 
-🛠️ Cara Kompilasi
+# Cara Kompilasi
 Jalankan perintah berikut dari root directory project (direktori yang berisi folder src/):
 
 bash
@@ -24,7 +24,7 @@ Edit
 javac -d bin src/RushHour.java src/model/*.java src/solver/*.java src/util/*.java
 File hasil kompilasi akan disimpan di dalam folder bin/.
 
-▶️ Cara Menjalankan Program
+# Cara Menjalankan Program
 Setelah kompilasi berhasil, jalankan program menggunakan perintah:
 
 bash
@@ -54,6 +54,6 @@ Baris pertama menyatakan ukuran papan (baris x kolom)
 
 Baris selanjutnya menyatakan mobil-mobil: ID row col orientasi panjang
 
-👨‍💻 Author
+# Author
 * Muhammad Zakkiy (10122074)
 * Ghaisan Zaki Pratama (10122078)
