@@ -1,0 +1,62 @@
+Running A* Search...
+Papan Awal
+AAB..F 
+..BCDF 
+GPPCDFK
+GH.III 
+GHJ... 
+LLJMM. 
+
+Gerakan 1: C-atas
+AABC.F 
+..BCDF 
+GPP.DFK
+GH.III 
+GHJ... 
+LLJMM. 
+
+Gerakan 2: D-atas
+AABCDF 
+..BCDF 
+GPP..FK
+GH.III 
+GHJ... 
+LLJMM. 
+
+Gerakan 3: P-kanan
+AABCDF 
+..BCDF 
+G..PPFK
+GH.III 
+GHJ... 
+LLJMM. 
+
+Gerakan 4: I-kiri
+AABCDF 
+..BCDF 
+G..PPFK
+GHIII. 
+GHJ... 
+LLJMM. 
+
+Gerakan 5: F-bawah
+AABCD. 
+..BCD. 
+G..PP.K
+GHIIIF 
+GHJ..F 
+LLJMMF 
+
+Gerakan 6: P-kanan
+AABCD. 
+..BCD. 
+G.....K
+GHIIIF 
+GHJ..F 
+LLJMMF 
+
+--- Search stats ---
+Nodes expanded : 137
+Elapsed time   : 0,094 s
+--------------------
+

@@ -1,0 +1,9 @@
+6 6
+10
+ABBP..
+ACDP..
+.CDEEE
+FFDGGH
+I....H
+I..JJJ
+   K
